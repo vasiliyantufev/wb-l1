@@ -13,11 +13,12 @@ import (
 
 func main() {
 
+	const N = 10
 	ch := make(chan int)
 	go print(ch)
 	go send(ch)
 	//go print(ch)
-	time.Sleep(time.Duration(10 * time.Second))
+	time.Sleep(time.Duration(N * time.Second))
 	close(ch)
 }
 
