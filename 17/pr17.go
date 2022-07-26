@@ -10,7 +10,7 @@ import (
 */
 
 func main() {
-	x := []int{10, 20, 30, 40, 50}
+	x := []int{33, 303, 303, 40, 50}
 
 	// Element to search
 	v := 303

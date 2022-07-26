@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "math"
+)
 
 /*
 task #2
@@ -10,12 +13,14 @@ task #2
 */
 
 func main() {
-	array := [5]int{2, 4, 6, 8, 10}
+    ch := make(chan float64)
+	array := []float64{2, 4, 6, 8, 10}
 	for _, a := range array {
-		pow(a)
+		go pow(a, ch)
+	    fmt.Println(<-ch)
 	}
 }
 
-func pow(a int) {
-	fmt.Println(a * a)
+func pow(a float64, ch chan float64) {
+    ch <- math.Pow(a, 2)
 }

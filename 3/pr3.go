@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "math"
+    "fmt"
+)
 
 /*
 task #3
@@ -9,12 +12,20 @@ task #3
 */
 
 func main() {
-	array := []int{2, 4, 6, 8, 10}
+	array := []float64{2, 4, 6, 8, 10}
 
-	result := 0
+	var result float64
+
+	ch := make(chan float64)
 
 	for _, a := range array {
-		result += a * a
+
+        go pow(a, ch)
+		result += <- ch
 	}
 	fmt.Printf("Сумма квадратов = %v\n", result)
+}
+
+func pow(a float64, ch chan float64) {
+    ch <- math.Pow(a, 2)
 }
