@@ -16,10 +16,12 @@ type counter struct {
 	i  int
 }
 
+//создаём структуру для счётчика
 func counterStruct() counter {
 	return counter{}
 }
 
+//увеличивае значение счётчика
 func increment(count *counter) {
 	count.mx.Lock()
 	count.i++

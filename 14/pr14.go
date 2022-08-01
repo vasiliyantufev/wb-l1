@@ -15,6 +15,7 @@ func main() {
 	typeDefine(t)
 }
 
+// определяем тип(int, string, bool, channel) переданной переменной.
 func typeDefine(i interface{}) {
 
 	switch i.(type) {

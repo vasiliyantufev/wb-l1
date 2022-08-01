@@ -15,6 +15,7 @@ func main() {
 	// Element to search
 	v := 303
 
+	//Бинарный поиск
 	ind := sort.Search(len(x), func(ind int) bool { return x[ind] >= v })
 	if ind < len(x) && x[ind] == v {
 		fmt.Printf("found %d at ind %d in %v\n", v, ind, x)
