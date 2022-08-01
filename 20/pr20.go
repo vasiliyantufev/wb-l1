@@ -13,7 +13,7 @@ import (
 func main() {
 
 	str := "one two three"
-	//дробим строку по элементам в массив, разделиьтель пробел
+	//дробим строку по элементам в массив, разделитель пробел
 	array := strings.Split(str, " ")
 	reversArray := make([]string, 0)
 

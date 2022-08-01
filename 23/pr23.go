@@ -12,7 +12,7 @@ func main() {
 	fmt.Println(deleteElement(s, 2))
 }
 
-//дедллаем добавление с первого элемента до эл,который надо удалить и до последнего элемента
+//делаем добавление с первого элемента до эл,который надо удалить и до последнего элемента
 func deleteElement(slice []int, i int) []int {
 	slice = append(slice[:i], slice[i+1:]...)
 	return slice
