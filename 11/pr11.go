@@ -24,10 +24,8 @@ func intersection(first, secod []string) []string {
 
 			// если значение первого и второго множества одинаковы и в результирующем множестве текущего значения нет,
 			// то записываем
-			if f == s {
-				if !stringInSlice(f, out) {
-					out = append(out, f)
-				}
+			if f == s && !stringInSlice(f, out) {
+				out = append(out, f)
 			}
 		}
 	}

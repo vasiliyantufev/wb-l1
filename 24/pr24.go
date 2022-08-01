@@ -15,7 +15,7 @@ type Point struct {
 	x, y float64
 }
 
-//задаём точки х и у
+//конструктор новой точки х и у
 func NewPoint(x, y float64) *Point {
 	return &Point{x: x, y: y}
 }
