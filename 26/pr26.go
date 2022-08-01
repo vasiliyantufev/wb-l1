@@ -13,19 +13,22 @@ aabcd — false
 import "fmt"
 
 func main() {
-    fmt.Println(unionString("abcd"))
-    fmt.Println(unionString("abCdefAaf"))
-    fmt.Println(unionString("aabcd"))
+	fmt.Println(unionString("abcd"))
+	fmt.Println(unionString("abCdefAaf"))
+	fmt.Println(unionString("aabcd"))
 }
 
+//функция для проверки уникальности символов в строке
 func unionString(str string) (string, bool) {
 
-    for i := 0; i < len(str); i++ {
-        for j := i + 1; j < len(str); j++ {
-            if(str[i] == str[j]) {
-                return str, false
-            }
-        }
-    }
-    return str, true
+	//для каждого символа в строке делает проверку для оставшихся символов
+	//если находит одинаковые, выбрасывает false
+	for i := 0; i < len(str); i++ {
+		for j := i + 1; j < len(str); j++ {
+			if str[i] == str[j] {
+				return str, false
+			}
+		}
+	}
+	return str, true
 }

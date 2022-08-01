@@ -1,8 +1,8 @@
 package main
 
 import (
-    "fmt"
-    "strings"
+	"fmt"
+	"strings"
 )
 
 /*
@@ -12,14 +12,16 @@ import (
 
 func main() {
 
-    str := "one two three"
-    array := strings.Split(str, " ")
-    reversArray := make([]string, 0)
+	str := "one two three"
+	//дробим строку по элементам в массив, разделиьтель пробел
+	array := strings.Split(str, " ")
+	reversArray := make([]string, 0)
 
-    for i := len(array) - 1; i>=0; i-- {
-        reversArray = append(reversArray, array[i])
-    }
+	//просматриваем массив с конца и записываем в новый
+	for i := len(array) - 1; i >= 0; i-- {
+		reversArray = append(reversArray, array[i])
+	}
 
-    fmt.Println("Строка: ", str)
-    fmt.Println("Строка перевернутая: ", strings.Join(reversArray, " "))
+	fmt.Println("Строка: ", str)
+	fmt.Println("Строка перевернутая: ", strings.Join(reversArray, " "))
 }
