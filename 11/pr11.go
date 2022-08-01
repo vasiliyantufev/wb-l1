@@ -7,10 +7,12 @@ import "fmt"
 */
 
 func main() {
-	firstArr := []string{"one", "two", "three", "four", "fiw"}
-	secondArr := []string{"three", "four", "four", "one"}
 
-	fmt.Println("", intersection(firstArr, secondArr))
+	//два множества
+	firstSet := []string{"one", "two", "three", "four", "fiw"}
+	secondSet := []string{"three", "four", "four", "one"}
+
+	fmt.Println("", intersection(firstSet, secondSet))
 }
 
 func intersection(first, secod []string) []string {
@@ -19,8 +21,10 @@ func intersection(first, secod []string) []string {
 
 	for _, f := range first {
 		for _, s := range secod {
-			if f == s {
 
+			// если значение первого и второго множества одинаковы и в результирующем множестве текущего значения нет,
+			// то записываем
+			if f == s {
 				if !stringInSlice(f, out) {
 					out = append(out, f)
 				}
@@ -30,6 +34,7 @@ func intersection(first, secod []string) []string {
 	return out
 }
 
+//поиск элемента в результирующем множестве
 func stringInSlice(a string, list []string) bool {
 	for _, b := range list {
 		if b == a {

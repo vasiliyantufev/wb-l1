@@ -8,21 +8,26 @@ task #1
 Реализовать встраивание методов в структуре Action от родительской структуры Human (аналог наследования).
 */
 
+// Родительская структура
 type Human struct {
 	name string
 	age  int
 	sex  bool
 }
 
+//метод объявлен для типа Human
 func (h *Human) Hi() {
 	fmt.Println("Hi kitty!")
 }
 
-type Action struct {
+//
+type Action struct { //встраиваем Human в Action дочернюю структуру
 	Human
 }
 
 func main() {
+	// Создание экземпляра.
 	Action := new(Action)
+	// дочерняя структура может напрямую обращаться к переменным базовой структуры.
 	Action.Hi()
 }

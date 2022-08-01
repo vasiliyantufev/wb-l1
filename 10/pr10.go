@@ -7,16 +7,19 @@ import "fmt"
 Объединить данные значения в группы с шагом в 10 градусов. Последовательность в подмножноствах не важна.
 
 Пример: -20:{-25.0, -27.0, -21.0}, 10:{13.0, 19.0, 15.5}, 20: {24.5}, etc.
-
 */
 
 func main() {
 
-	array := []float32{-25.4, -27.0, 13.0, 19.0, 15.5, 24.5, -21.0, 32.5}
-	unionArray := make(map[int][]float32)
+	//последовательность температурных колебаний
+	temperature := []float32{-25.4, -27.0, 13.0, 19.0, 15.5, 24.5, -21.0, 32.5}
+	//map объединения данные в группы с шагом в 10 градусов
+	unionTemperature := make(map[int][]float32)
 
-	for _, a := range array {
-		unionArray[(int(a)/10)*10] = append(unionArray[(int(a)/10)*10], a)
+	for _, t := range temperature {
+		//int(t) - отбрасывается дробная часть, int(t)/10 -вычисление кол-ва десятков, (int(a)/10)*10 - создание групп кратных 10
+		index := (int(t) / 10) * 10
+		unionTemperature[index] = append(unionTemperature[index], t)
 	}
-	fmt.Println(unionArray)
+	fmt.Println(unionTemperature)
 }

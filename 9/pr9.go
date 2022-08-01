@@ -11,11 +11,13 @@ import (
 
 func main() {
 
+	//два канала
 	ch1 := make(chan int)
 	ch2 := make(chan int)
 
 	array := []int{1, 2, 4, 6, 8}
 
+	//анонимная функция для записи в первый канал чисел(x) из массива
 	go func() {
 		for _, val := range array {
 			ch1 <- val
@@ -23,6 +25,7 @@ func main() {
 		close(ch1)
 	}()
 
+	//анонимная функция для записи результа операции x*2
 	go func() {
 		for val := range ch1 {
 			ch2 <- val * 2
@@ -31,6 +34,7 @@ func main() {
 		close(ch2)
 	}()
 
+	// вывод значений из второго канала
 	for x := range ch2 {
 		fmt.Println(x)
 	}

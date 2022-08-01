@@ -5,6 +5,8 @@ import "fmt"
 // Реализовать все возможные способы остановки выполнения горутины.
 
 func main() {
+
+	// передаем false (0)
 	quit := make(chan bool)
 
 	go func() {
@@ -22,5 +24,7 @@ func main() {
 	fmt.Println("Enter")
 	quit <- true
 	fmt.Println("Exit")
+	// закрытие канала
+	close(quit)
 
 }

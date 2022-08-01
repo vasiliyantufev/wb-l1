@@ -1,8 +1,8 @@
 package main
 
 import (
-    "math"
-    "fmt"
+	"fmt"
+	"math"
 )
 
 /*
@@ -18,14 +18,16 @@ func main() {
 
 	ch := make(chan float64)
 
+	// Выполняем горутину.
 	for _, a := range array {
 
-        go pow(a, ch)
-		result += <- ch
+		go pow(a, ch)
+		result += <-ch
 	}
 	fmt.Printf("Сумма квадратов = %v\n", result)
 }
 
+// Принимает число "а" и канал ch, считает квадрат числа и записывает результат в канал
 func pow(a float64, ch chan float64) {
-    ch <- math.Pow(a, 2)
+	ch <- math.Pow(a, 2)
 }

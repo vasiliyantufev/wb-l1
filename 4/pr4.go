@@ -19,8 +19,10 @@ func main() {
 	fmt.Println("Введите кол-во горутин:")
 	fmt.Scan(&n)
 
+	// Создаем канал для получения данных, отправляемых воркерам.
 	input := make(chan int)
 
+	// Запускаем n воркеров через горутины, передавая номер воркера i и канал ch.
 	for i := 0; i < n; i++ {
 		go worker(i, input)
 	}
@@ -31,6 +33,7 @@ func main() {
 	}
 }
 
+// Принимает воркер и канал, данные читаются из канала и записываются в number
 func worker(worker int, in <-chan int) {
 	for {
 		number := <-in

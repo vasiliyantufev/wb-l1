@@ -10,10 +10,11 @@ func main() {
 
 	str := []string{"cat", "cat", "dog", "cat", "tree"}
 
-	mapArray := make(map[string]struct{})
+	mapSet := make(map[string]struct{})
 
 	for _, key := range str {
-		mapArray[key] = struct{}{}
+		// создает собственное множество для str
+		mapSet[key] = struct{}{}
 	}
-	fmt.Println(mapArray)
+	fmt.Println(mapSet)
 }
